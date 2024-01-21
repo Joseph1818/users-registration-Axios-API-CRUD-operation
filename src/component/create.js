@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button, Checkbox, Form } from "semantic-ui-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Create() {
+  const navigate = useNavigate();
   //Created useState for first-name and last name to get data.
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -18,6 +20,7 @@ export default function Create() {
     // console.log(firstName);
     // console.log(lastName);
     // console.log(checkbox);
+    navigate("/read");
   };
   return (
     <div>
@@ -46,7 +49,6 @@ export default function Create() {
         <Button type="submit" onClick={postData}>
           Submit
         </Button>
-        
       </Form>
     </div>
   );

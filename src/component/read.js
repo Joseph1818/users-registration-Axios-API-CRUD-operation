@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import { Table } from "semantic-ui-react";
 import { Button } from "semantic-ui-react";
 export default function Read() {
-
   //Delete
   const onDelete = (id) => {
     axios.delete(`https://6554786963cafc694fe68229.mockapi.io/fakeData/${id}`);
   };
-//Read Operation
+  //Read Operation
   const [APIData, setAPIData] = useState([]);
   useEffect(() => {
     axios
@@ -19,15 +18,18 @@ export default function Read() {
       });
   }, []);
 
+  const updateHandle = (e) => {
+    
+  };
 
-// .// Using local storage to store data into the browser by callin the setData Function.
-    const setData = (data) => {
-      let { id, firstName, lastName, checkbox } = data;
-      localStorage.setItem("ID", id);
-      localStorage.setItem("First Name", firstName);
-      localStorage.setItem("Last Name", lastName);
-      localStorage.setItem("Checkbox Value", checkbox);
-    };
+  // .// Using local storage to store data into the browser by callin the setData Function.
+  const setData = (data) => {
+    let { id, firstName, lastName, checkbox } = data;
+    localStorage.setItem("ID", id);
+    localStorage.setItem("First Name", firstName);
+    localStorage.setItem("Last Name", lastName);
+    localStorage.setItem("Checkbox Value", checkbox);
+  };
   return (
     <div>
       <Table singleLine>
